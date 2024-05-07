@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+		<meta name="HandheldFriendly" content="true">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Note App</title>
+	</head>
+	
+<body onload="checkEdits()">
+	<div class="container">
+	<h1>NoteNest</h1>
+	<p>Create, save, and edit your notes in this minimalist note-taking app!  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="-2 -2 48 48"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4"><path d="M8 6a2 2 0 0 1 2-2h20l10 10v28a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2z"/><path stroke-linecap="round" d="M16 20h16m-16 8h16"/></g></svg></p>
+
+	<div class="buttons">
+	<button class="save-button" onclick="newElement()">Save</button>
+	<button class="delete-button" onclick="clearElement()">Clear</button>
+	<button class="whiteboard-button" onclick="localStorage.removeItem('currentDrawing'); window.location='whiteboard.html';">Whiteboard</button>
+	</div>
+	
+	<div id="myDiv" class="new-note">
+		<textarea id="myInput" placeholder="What's on your mind?"></textarea>
+	</div>
+	
+	<div class="notespace">
+	</div>
+
+	<h3>Saved notes</h3>
+	
+	<div id="emptytext"></div>
+	<div id="update"></div> 
+	<ul id="saved-notes" contenteditable="true"></ul>
+	<ul id="myNotes" contenteditable="true">
+	</ul>
+	</div>
+	</div>
+
+	<div id="calculator" class="draggable">
+		<button onclick="toggleCalculator()" class="toggle-btn">Calculator </button>
+		<div id="calculator-body" style="display: block;">
+			<input id="display" readonly>
+			<div id="keys">
+	
+        <button onclick="appendToDisplay('+')" class="operator-btn">+</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('-')" class="operator-btn">-</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('x')" class="operator-btn">x</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('÷')"class="operator-btn"> ÷</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="clearDisplay()"class="operator-btn">C</button>
+
+    </div>
+
+
+</div>
+<script src="main.js"></script>
+
+
+
+</body>
+</html>
